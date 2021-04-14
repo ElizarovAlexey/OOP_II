@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PrincipalController">
+   <children>
+      <AnchorPane prefHeight="70.0" prefWidth="650.0" style="-fx-background-color: #4591F3;">
+         <children>
+            <Button fx:id="printStudents" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#printStudentsOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #fff;" text="Print">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="addStudents" layoutX="106.0" layoutY="20.0" mnemonicParsing="false" onAction="#addStudentsOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #fff;" text="Add">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="updateStudents" layoutX="200.0" layoutY="20.0" mnemonicParsing="false" onAction="#printStudentsOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #fff;" text="Update">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="close" layoutX="611.0" layoutY="21.0" mnemonicParsing="false" onAction="#closeOnAction" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: #fff;" text="x">
+               <font>
+                  <Font name="Segoe UI" size="14.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+      <TableView fx:id="table" layoutY="71.0" prefHeight="329.0" prefWidth="650.0">
+        <columns>
+          <TableColumn fx:id="column_firstname" prefWidth="130.0" text="Firstname" />
+          <TableColumn fx:id="column_lastname" prefWidth="130.0" text="Lastname" />
+            <TableColumn fx:id="column_group" prefWidth="130.0" text="Group" />
+            <TableColumn fx:id="column_faculty" prefWidth="130.0" text="Faculty" />
+            <TableColumn fx:id="column_course" prefWidth="130.0" text="Course" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
