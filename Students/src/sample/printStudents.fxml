@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.PrincipalController">
    <children>
       <AnchorPane prefHeight="70.0" prefWidth="650.0" style="-fx-background-color: #4591F3;">
          <children>
-            <Button fx:id="printStudents" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" onAction="#printStudentsOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #fff;" text="Print">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="addStudents" layoutX="105.0" layoutY="20.0" mnemonicParsing="false" onAction="#addStudentsOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #fff;" text="Add">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="updateStudents" layoutX="197.0" layoutY="20.0" mnemonicParsing="false" onAction="#printStudentsOnAction" prefHeight="30.0" prefWidth="70.0" style="-fx-background-color: #fff;" text="Update">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="close" layoutX="611.0" layoutY="21.0" mnemonicParsing="false" onAction="#closeOnAction" prefHeight="20.0" prefWidth="20.0" style="-fx-background-color: #fff;" text="x">
-               <font>
-                  <Font name="Segoe UI" size="14.0" />
-               </font>
-            </Button>
+            <ImageView fx:id="printStudentsImageView" accessibleRole="BUTTON" fitHeight="50.0" fitWidth="50.0" layoutX="37.0" layoutY="10.0" onMouseClicked="#printStudentsOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/print.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="updateStudentsImageView" fitHeight="50.0" fitWidth="50.0" layoutX="190.0" layoutY="10.0" onMouseClicked="#printStudentsOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/refresh.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="addStudentsImageView" fitHeight="50.0" fitWidth="50.0" layoutX="114.0" layoutY="10.0" onMouseClicked="#addStudentsOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/add.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="closeImageView" fitHeight="25.0" fitWidth="25.0" layoutX="623.0" layoutY="4.0" onMouseClicked="#closeOnAction" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/close.png" />
+               </image>
+            </ImageView>
          </children></AnchorPane>
       <TableView fx:id="table" layoutY="71.0" prefHeight="329.0" prefWidth="650.0">
         <columns>

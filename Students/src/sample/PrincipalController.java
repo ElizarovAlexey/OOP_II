@@ -1,5 +1,6 @@
 package sample;
 
+import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -13,13 +14,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.event.ActionEvent;
 
 public class PrincipalController implements Initializable {
 	
@@ -37,21 +38,42 @@ public class PrincipalController implements Initializable {
 	private TableColumn<ModelTable, String> column_faculty;
 	
 	@FXML
-	private Button close;
+	private ImageView closeImageView;
+	@FXML
+	private ImageView addStudentsImageView;
+	@FXML
+	private ImageView printStudentsImageView;
+	@FXML
+	private ImageView updateStudentsImageView;
 	
 	
 	ObservableList<ModelTable> oblist = FXCollections.observableArrayList();
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		File printIconFile = new File("images/print.png");
+        Image printIconImage = new Image(printIconFile.toURI().toString());
+        printStudentsImageView.setImage(printIconImage);
+        
+        File addIconFile = new File("images/add.png");
+        Image addIconImage = new Image(addIconFile.toURI().toString());
+        addStudentsImageView.setImage(addIconImage);
+        
+        File updateIconFile = new File("images/refresh.png");
+        Image updateIconImage = new Image(updateIconFile.toURI().toString());
+        updateStudentsImageView.setImage(updateIconImage);
+        
+        File closeIconFile = new File("images/close.png");
+        Image closeIconImage = new Image(closeIconFile.toURI().toString());
+        closeImageView.setImage(closeIconImage);
 	}
 	
-	public void closeOnAction(ActionEvent event) {
-		Stage stage = (Stage) close.getScene().getWindow();
+	public void closeOnAction() {
+		Stage stage = (Stage) closeImageView.getScene().getWindow();
         stage.close();
 	}
 	
-	public void printStudentsOnAction(ActionEvent event) {
+	public void printStudentsOnAction() {
 		printStudents();
 	}
 	

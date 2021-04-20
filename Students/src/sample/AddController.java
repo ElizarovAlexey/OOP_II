@@ -1,5 +1,6 @@
 package sample;
 
+import java.io.File;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -17,12 +18,14 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 
 public class AddController implements Initializable {
 	@FXML
-	private Button close;
+	private ImageView closeImageView;
 	@FXML
 	private TextField firstnameTextField;
 	@FXML
@@ -37,14 +40,18 @@ public class AddController implements Initializable {
 	private Label messageLabel;
 
 	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) { }
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		File closeIconFile = new File("images/close.png");
+        Image closeIconImage = new Image(closeIconFile.toURI().toString());
+        closeImageView.setImage(closeIconImage);
+	}
 	
-	public void closeOnAction(ActionEvent event) {
-		Stage stage = (Stage) close.getScene().getWindow();
+	public void closeOnAction() {
+		Stage stage = (Stage) closeImageView.getScene().getWindow();
         stage.close();
 	}
 	
-	public void applyOnAction() {
+	public void applyOnAction(ActionEvent event) {
 		DatabaseConnection connection = new DatabaseConnection();
 		Connection connectionDB = connection.getConnection();
 		
@@ -59,11 +66,10 @@ public class AddController implements Initializable {
     	String insertToRegister = insertFields + insertValues;
 		
 		try {
-    		Statement statement = connectionDB.createStatement();
+			Statement statement = connectionDB.createStatement();
     		statement.executeUpdate(insertToRegister);
     		messageLabel.setText("Student has been added successfully!");
     		clearFields();
-    		
     	} catch(Exception e) {
     		e.printStackTrace();
     		e.getCause();
